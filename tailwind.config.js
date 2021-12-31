@@ -15,11 +15,17 @@ module.exports = {
       btncolor: 'var(--btn-color)',
       textcolor: 'var(--text-color)',
       white: '#fff',
+      green: ' rgba(98, 190, 203, 1)',
     },
 
     extend: {
       screens: {
         '3xl': '1600px',
+      },
+
+      backgroundImage: {
+        // 'bluebg': "url('../src/component/assets/Rectangle1.png')",
+        'footer-texture': "url('/img/footer-texture.png')",
       },
       animation: {
         none: 'none',

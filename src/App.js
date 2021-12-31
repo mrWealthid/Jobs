@@ -6,16 +6,20 @@ import Register from './components/Register';
 import JobBoard from './components/Views/JobBoard';
 import Navbar from './components/Navbar';
 import GuestBoard from './components/Views/GuestBoard';
+import AdminBoard from './components/Views/AdminBoard';
 
 function App() {
   return (
     <div className='App'>
       {/* <Navbar /> */}
 
-      <GuestBoard />
+      {/* <GuestBoard /> */}
 
       <Routes>
-        <Route to='/login' element={<Login />} />
+        <Route path='/admin' element={<AdminBoard />} />
+
+        <Route path='/jobs' element={<GuestBoard />} />
+        <Route path='/login' element={<Login />} />
         <Route to='/register' element={<Register />} />
         <Route to='/jobs' element={<JobBoard />} />
       </Routes>
