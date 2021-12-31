@@ -1,13 +1,33 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: Poppins;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --primary-color: #0f4a7b;
+  --btn-color: #ea5566;
+  --text-color: #3e3e40b2;
+
+  --shadow: 0 4px 8px 0 rgb(243, 239, 239), 0 6px 20px rgb(243, 239, 239);
 }
+
+/* font name 
+Gilroy ☞ */
+
+/* primary font 
+font-family: Gilroy-Regular ☞;
+font-size: 14px;
+line-height: 16px;
+letter-spacing: 0.12em;
+text-align: left; */
+
+/* primary color background: #0F4A7B; */
+
+/* text color : #3E3E40B2; */
+
+/* button color #EA5566; */
