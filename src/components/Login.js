@@ -23,6 +23,8 @@ const Login = ({ type }) => {
     handleChangeRegister,
     login,
     loading,
+    handleRegister,
+    handleLogin,
   } = useJobContext();
   return (
     <div className='flex max-h-screen w-full'>
@@ -43,7 +45,10 @@ const Login = ({ type }) => {
         <div className='w-4/12  -ml-32 z-10 max-h-screen' style={styles2}></div>
       </section>
 
-      <form className=' flex flex-1 h-screen items-center'>
+      <form
+        className=' flex flex-1 h-screen items-center'
+        onSubmit={type === 'register' ? handleRegister : handleLogin}
+      >
         <section className='flex-col flex gap-4 w-8/12'>
           {type === 'register' && (
             <label htmlFor='name' className='flex flex-col'>

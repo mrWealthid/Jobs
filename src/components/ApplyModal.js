@@ -4,7 +4,12 @@ import { useJobContext } from './context/JobAppContext';
 import Input from './Input';
 
 const ApplyModal = () => {
-  const { handleApplyModal, handleChangeApply, applyJob } = useJobContext();
+  const {
+    handleApplyModal,
+    handleChangeApply,
+    applyJob,
+    applyJobSubmit,
+  } = useJobContext();
 
   return (
     <div className='flex flex-col gap-3 min-h-screen text-primary py-10 w-10/12 mx-auto Post'>
@@ -15,7 +20,7 @@ const ApplyModal = () => {
       <p>Front end Developer</p>
       <p>Ikeja Lagos</p>
 
-      <form className=' flex flex-1   items-center'>
+      <form className=' flex flex-1   items-center' onSubmit={applyJobSubmit}>
         <section className='flex-col flex gap-2 w-full'>
           <label htmlFor='firstname'>First Name</label>
           <Input

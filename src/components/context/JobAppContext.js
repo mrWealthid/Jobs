@@ -5,6 +5,8 @@ import React, {
   createContext,
   useRef,
 } from 'react';
+import Login from '../Login';
+import { loginUser, registerUser } from '../utils/helpers';
 
 const JobAppContext = createContext();
 
@@ -14,15 +16,6 @@ const JobAppProvider = ({ children }) => {
     email: '',
     password: '',
   });
-
-  const [register, setRegister] = useState({
-    name: '',
-    email: '',
-    password: '',
-  });
-  const handleClicks = (e) => {
-    setShow(!show);
-  };
 
   //Job appplication
   const [applyModal, setApplyModal] = useState(false);
@@ -44,6 +37,11 @@ const JobAppProvider = ({ children }) => {
     setApplyJob({ ...applyJob, [name]: value });
   };
 
+  const applyJobSubmit = (e) => {
+    e.preventDefault();
+    console.log(applyJob);
+  };
+
   //post job
 
   const [postJob, setPostJob] = useState({
@@ -60,16 +58,55 @@ const JobAppProvider = ({ children }) => {
     const { name, value } = e.target;
     setPostJob({ ...postJob, [name]: value });
   };
+
+  const postJobSubmit = (e) => {
+    e.preventDefault();
+    console.log(postJob);
+  };
   //Login
   const handleChangeLogin = (e) => {
     const { name, value } = e.target;
     setLogin({ ...login, [name]: value });
   };
 
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      console.log(login);
+      const data = await loginUser(login);
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   //Register
   const handleChangeRegister = (e) => {
     const { name, value } = e.target;
     setRegister({ ...register, [name]: value });
+  };
+
+  const [register, setRegister] = useState({
+    name: '',
+    email: '',
+    password: '',
+  });
+  const handleClicks = (e) => {
+    setShow(!show);
+  };
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    try {
+      console.log(register);
+
+      const data = await registerUser(register);
+
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <JobAppContext.Provider
@@ -86,6 +123,10 @@ const JobAppProvider = ({ children }) => {
         applyModal,
         postJob,
         handleChangePostJob,
+        postJobSubmit,
+        applyJobSubmit,
+        handleRegister,
+        handleLogin,
       }}
     >
       {children}

@@ -4,7 +4,12 @@ import { useJobContext } from './context/JobAppContext';
 import Input from './Input';
 
 const PostJobModal = () => {
-  const { handleClicks, postJob, handleChangePostJob } = useJobContext();
+  const {
+    handleClicks,
+    postJob,
+    handleChangePostJob,
+    postJobSubmit,
+  } = useJobContext();
 
   return (
     <div>
@@ -19,7 +24,7 @@ const PostJobModal = () => {
           candidates
         </p>
 
-        <form className=' flex flex-1   items-center'>
+        <form className=' flex flex-1   items-center' onSubmit={postJobSubmit}>
           <section className='flex-col flex gap-2 w-full'>
             <label htmlFor='title'>Job Title</label>
             <Input
@@ -48,10 +53,17 @@ const PostJobModal = () => {
             <label htmlFor='Employment Type'>
               What type of employment is it?
             </label>
-            <select>
+            <select
+              value={postJob.type}
+              className=' border rounded p-2'
+              name='type'
+              onChange={handleChangePostJob}
+            >
               <option>Select Option</option>
-              <option>Part Time</option>
-              <option>Full Time</option>
+              <option value='part-time'>Part Time</option>
+              <option value='full-time'>Full Time</option>
+              <option value='remote'>Remote</option>
+              <option value='on-site'>On Site</option>
             </select>
 
             <label htmlFor='name'>Salary Range</label>
@@ -73,10 +85,17 @@ const PostJobModal = () => {
             <label htmlFor='category'>
               What Sector is this job categorized under?
             </label>
-            <select>
+            <select
+              value={postJob.category}
+              className=' border rounded p-2'
+              name='category'
+              onChange={handleChangePostJob}
+            >
               <option>Select Option</option>
-              <option>Part Time</option>
-              <option>Full Time</option>
+              <option value='Frontend'>Frontend</option>
+              <option value='Backend'>Backend</option>
+              <option value='UI/UX'>UI/UX</option>
+              <option value='Devops'>Devops</option>
             </select>
 
             <button className='p-2 block rounded-lg w-full text-white bg-primary'>
