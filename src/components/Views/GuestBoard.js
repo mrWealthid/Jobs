@@ -6,10 +6,10 @@ import JobDescription from './JobDescription';
 import Footer from '../Footer';
 import ApplyModal from '../ApplyModal';
 import { useJobContext } from '../context/JobAppContext';
-import PostJob from '../PostJob';
+import PostJobModal from '../PostJobModal';
 
 const GuestBoard = () => {
-  const { show, showApply } = useJobContext();
+  const { show, applyModal } = useJobContext();
   return (
     <div className='flex flex-col gap-15'>
       <Header />
@@ -37,11 +37,11 @@ const GuestBoard = () => {
       {show ? (
         <div className='bg-white w-7/12 popup   '>
           {' '}
-          <PostJob />
+          <PostJobModal />
         </div>
       ) : null}
 
-      {showApply ? (
+      {applyModal ? (
         <div className='bg-white w-7/12 popup   '>
           {' '}
           <ApplyModal />

@@ -1,84 +1,72 @@
 import React from 'react';
 import { FaTimes } from 'react-icons/fa';
 import { useJobContext } from './context/JobAppContext';
+import Input from './Input';
 
 const ApplyModal = () => {
-  const { handleClicks } = useJobContext();
-  const handleChange = () => {
-    console.log('clicked');
-  };
+  const { handleApplyModal, handleChangeApply, applyJob } = useJobContext();
+
   return (
     <div className='flex flex-col gap-3 min-h-screen text-primary py-10 w-10/12 mx-auto Post'>
       <div className='flex justify-end '>
         {' '}
-        <FaTimes onClick={handleClicks} />
+        <FaTimes onClick={handleApplyModal} />
       </div>
-      <p>New Job</p>
-      <p>
-        Kindly provide the required information to get matched with suitable
-        candidates
-      </p>
+      <p>Front end Developer</p>
+      <p>Ikeja Lagos</p>
 
       <form className=' flex flex-1   items-center'>
         <section className='flex-col flex gap-2 w-full'>
-          <label htmlFor='name'>Name</label>
-          <input
+          <label htmlFor='firstname'>First Name</label>
+          <Input
             type='text'
-            className=' border rounded border-gray p-2'
-            id='name'
-            onChange={handleChange}
+            name='firstName'
+            value={applyJob.firstName}
+            onchange={handleChangeApply}
           />
 
-          <label htmlFor='email'>Email</label>
-          <input
+          <label htmlFor='firstname'>Last Name</label>
+          <Input
+            type='text'
+            name='lastName'
+            value={applyJob.lastName}
+            onchange={handleChangeApply}
+          />
+
+          <label htmlFor='email'>Email Address</label>
+          <Input
             type='email'
-            className=' border rounded border-gray p-2'
-            id='email'
-            onChange={handleChange}
+            name='email'
+            value={applyJob.email}
+            onchange={handleChangeApply}
           />
 
-          <label htmlFor='name'>Name</label>
-          <input
+          <label htmlFor='name'>Location</label>
+          <Input
             type='text'
-            className=' border-gray border rounded p-2'
-            id='name'
-            onChange={handleChange}
+            value={applyJob.location}
+            name='location'
+            onchange={handleChangeApply}
           />
 
-          <label htmlFor='name'>Name</label>
-          <input
+          <label htmlFor='name'>Phone Number</label>
+          <Input
             type='text'
-            className=' border-gray border rounded p-2'
-            id='name'
-            onChange={handleChange}
+            name='number'
+            value={applyJob.number}
+            onchange={handleChangeApply}
           />
 
-          <label htmlFor='name'>Name</label>
           <input
-            type='text'
+            type='file'
             className='border-gray border rounded p-2'
-            id='name'
-            onChange={handleChange}
-          />
-
-          <label htmlFor='name'>Name</label>
-          <input
-            type='text'
-            className='border-gray border rounded p-2'
-            id='name'
-            onChange={handleChange}
-          />
-
-          <label htmlFor='name'>Name</label>
-          <input
-            type='text'
-            className='border-gray border rounded p-2'
-            id='name'
-            onChange={handleChange}
+            name='file'
+            value={applyJob.file}
+            onChange={handleChangeApply}
           />
 
           <button className='p-2 block rounded-lg w-full text-white bg-primary'>
-            Login
+            Submit Application
           </button>
         </section>
       </form>

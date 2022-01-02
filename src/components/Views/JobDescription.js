@@ -1,7 +1,9 @@
 import React from 'react';
 import { FaLocationArrow } from 'react-icons/fa';
+import { useJobContext } from '../context/JobAppContext';
 
-const JobDescription = ({ handleClicks }) => {
+const JobDescription = () => {
+  const { handleApplyModal } = useJobContext();
   return (
     <div className='shadow-2xl py-10  flex flex-col gap-3'>
       <section className='flex px-4 flex-col gap-4 border-b-btncolor border-b pb-8'>
@@ -14,7 +16,7 @@ const JobDescription = ({ handleClicks }) => {
 
         <button
           className='w-1/3 bg-primary rounded p-2 text-white text-sm Apply'
-          onClick={handleClicks}
+          onClick={handleApplyModal}
         >
           Apply via Find Job
         </button>

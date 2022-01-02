@@ -24,6 +24,42 @@ const JobAppProvider = ({ children }) => {
     setShow(!show);
   };
 
+  //Job appplication
+  const [applyModal, setApplyModal] = useState(false);
+
+  const [applyJob, setApplyJob] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    location: '',
+    number: '',
+    file: '',
+  });
+  const handleApplyModal = (e) => {
+    setApplyModal(!applyModal);
+  };
+
+  const handleChangeApply = (e) => {
+    const { name, value } = e.target;
+    setApplyJob({ ...applyJob, [name]: value });
+  };
+
+  //post job
+
+  const [postJob, setPostJob] = useState({
+    title: '',
+    company: '',
+    location: '',
+    type: '',
+    salary: '',
+    category: '',
+    description: '',
+  });
+
+  const handleChangePostJob = (e) => {
+    const { name, value } = e.target;
+    setPostJob({ ...postJob, [name]: value });
+  };
   //Login
   const handleChangeLogin = (e) => {
     const { name, value } = e.target;
@@ -44,6 +80,12 @@ const JobAppProvider = ({ children }) => {
         login,
         register,
         handleChangeRegister,
+        handleApplyModal,
+        handleChangeApply,
+        applyJob,
+        applyModal,
+        postJob,
+        handleChangePostJob,
       }}
     >
       {children}
