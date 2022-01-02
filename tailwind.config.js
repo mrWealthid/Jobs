@@ -16,6 +16,7 @@ module.exports = {
       textcolor: 'var(--text-color)',
       white: '#fff',
       green: ' rgba(98, 190, 203, 1)',
+      gray: 'gainsboro',
     },
 
     extend: {

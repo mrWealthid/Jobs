@@ -7,6 +7,7 @@ import JobBoard from './components/Views/JobBoard';
 import Navbar from './components/Navbar';
 import GuestBoard from './components/Views/GuestBoard';
 import AdminBoard from './components/Views/AdminBoard';
+import { useRef, useState } from 'react';
 
 function App() {
   return (
@@ -18,10 +19,10 @@ function App() {
       <Routes>
         <Route path='/admin' element={<AdminBoard />} />
 
-        <Route path='/jobs' element={<GuestBoard />} />
+        <Route path='/' element={<GuestBoard />} />
         <Route path='/login' element={<Login />} />
-        <Route to='/register' element={<Register />} />
-        <Route to='/jobs' element={<JobBoard />} />
+        <Route path='/register' element={<Register />} />
+        {/* <Route to='/jobs' element={<JobBoard />} />  */}
       </Routes>
     </div>
   );

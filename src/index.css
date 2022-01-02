@@ -16,6 +16,13 @@
   --shadow: 0 4px 8px 0 rgb(243, 239, 239), 0 6px 20px rgb(243, 239, 239);
 }
 
+.popup {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 /* font name 
 Gilroy ☞ */
 

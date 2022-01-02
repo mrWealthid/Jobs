@@ -4,13 +4,17 @@ import { FaSearch } from 'react-icons/fa';
 import JobCard from './JobCard';
 import JobDescription from './JobDescription';
 import Footer from '../Footer';
+import ApplyModal from '../ApplyModal';
+import { useJobContext } from '../context/JobAppContext';
+import PostJob from '../PostJob';
 
 const GuestBoard = () => {
+  const { show, showApply } = useJobContext();
   return (
     <div className='flex flex-col gap-15'>
       <Header />
 
-      <div className=' rounded-lg flex bg-white overflow-hidden px-2 shadow-2xl  w-9/12 mx-auto -mt-8'>
+      <div className=' rounded-lg flex items-center gap-2 bg-white overflow-hidden pl-2 shadow-2xl  w-9/12 mx-auto -mt-8'>
         <FaSearch />
         <input className='p-3 w-full bg-transparent' placeholder='' />
       </div>
@@ -29,6 +33,20 @@ const GuestBoard = () => {
       </main>
 
       <Footer />
+
+      {show ? (
+        <div className='bg-white w-7/12 popup   '>
+          {' '}
+          <PostJob />
+        </div>
+      ) : null}
+
+      {showApply ? (
+        <div className='bg-white w-7/12 popup   '>
+          {' '}
+          <ApplyModal />
+        </div>
+      ) : null}
     </div>
   );
 };

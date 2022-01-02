@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaLocationArrow } from 'react-icons/fa';
 
-const JobDescription = () => {
+const JobDescription = ({ handleClicks }) => {
   return (
     <div className='shadow-2xl py-10  flex flex-col gap-3'>
       <section className='flex px-4 flex-col gap-4 border-b-btncolor border-b pb-8'>
@@ -12,7 +12,10 @@ const JobDescription = () => {
           <p>Lagos, Nigeria</p>
         </div>
 
-        <button className='w-1/3 bg-primary rounded p-2 text-white text-sm'>
+        <button
+          className='w-1/3 bg-primary rounded p-2 text-white text-sm Apply'
+          onClick={handleClicks}
+        >
           Apply via Find Job
         </button>
       </section>
