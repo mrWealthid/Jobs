@@ -20,6 +20,7 @@ function App() {
         <Route path='/admin' element={<AdminBoard />} />
 
         <Route path='/' element={<GuestBoard />} />
+        <Route path='/:id' element={<GuestBoard />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         {/* <Route to='/jobs' element={<JobBoard />} />  */}

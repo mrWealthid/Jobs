@@ -13,7 +13,7 @@ const PostJobModal = () => {
 
   return (
     <div>
-      <div className='flex flex-col gap-3 min-h-screen text-primary py-10 w-10/12 mx-auto Post'>
+      <div className='flex flex-col text-xs animate-slideIn gap-3 min-h-screen text-primary py-10 w-10/12 mx-auto Post'>
         <div className='flex justify-end '>
           {' '}
           <FaTimes onClick={handleClicks} />
@@ -98,13 +98,12 @@ const PostJobModal = () => {
               <option value='Devops'>Devops</option>
             </select>
 
-            <button className='p-2 block rounded-lg w-full text-white bg-primary'>
+            <button className='p-2 mt-2 block rounded-lg w-full text-white bg-primary'>
               Login
             </button>
           </section>
         </form>
       </div>
-      );
     </div>
   );
 };

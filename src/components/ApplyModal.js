@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import { useJobContext } from './context/JobAppContext';
 import Input from './Input';
+import { IoLocationOutline } from 'react-icons/io5';
 
-const ApplyModal = () => {
+const ApplyModal = ({ id, jobs }) => {
   const {
     handleApplyModal,
     handleChangeApply,
@@ -11,14 +12,23 @@ const ApplyModal = () => {
     applyJobSubmit,
   } = useJobContext();
 
+  const [desc, setDesc] = useState({});
+  useEffect(() => {
+    if (!id) return;
+    setDesc(jobs.find((job) => job.id === Number(id)));
+  }, [id]);
+
   return (
-    <div className='flex flex-col gap-3 min-h-screen text-primary py-10 w-10/12 mx-auto Post'>
+    <div className='flex flex-col text-xs gap-3 min-h-screen text-primary py-10 animate-slideIn w-10/12 mx-auto Post'>
       <div className='flex justify-end '>
         {' '}
         <FaTimes onClick={handleApplyModal} />
       </div>
-      <p>Front end Developer</p>
-      <p>Ikeja Lagos</p>
+      <p>{desc.title}</p>
+      <p className='flex gap-2 items-center'>
+        <IoLocationOutline />
+        Ikeja Lagos
+      </p>
 
       <form className=' flex flex-1   items-center' onSubmit={applyJobSubmit}>
         <section className='flex-col flex gap-2 w-full'>
@@ -61,7 +71,7 @@ const ApplyModal = () => {
             value={applyJob.number}
             onchange={handleChangeApply}
           />
-
+          <label htmlFor='file'>Upload File</label>
           <input
             type='file'
             className='border-gray border rounded p-2'
@@ -70,7 +80,7 @@ const ApplyModal = () => {
             onChange={handleChangeApply}
           />
 
-          <button className='p-2 block rounded-lg w-full text-white bg-primary'>
+          <button className='p-2 mt-2 block rounded-lg w-full text-white bg-primary'>
             Submit Application
           </button>
         </section>

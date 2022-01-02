@@ -1,17 +1,32 @@
-import React from 'react';
-import { FaLocationArrow } from 'react-icons/fa';
+import React, { useState, useEffect } from 'react';
+import { IoLocationOutline } from 'react-icons/io5';
 import { useJobContext } from '../context/JobAppContext';
+// import { useParams } from 'react-router-dom';
 
-const JobDescription = () => {
+const JobDescription = ({ jobs, id }) => {
   const { handleApplyModal } = useJobContext();
-  return (
-    <div className='shadow-2xl py-10  flex flex-col gap-3'>
-      <section className='flex px-4 flex-col gap-4 border-b-btncolor border-b pb-8'>
-        <p>Front end Developer</p>
+  const [desc, setDesc] = useState({});
+  const [show, setShow] = useState('hidden');
 
-        <div className='flex gap-1'>
-          <FaLocationArrow />
-          <p>Lagos, Nigeria</p>
+  console.log(Number(id));
+  useEffect(() => {
+    if (!id) return;
+    const data = jobs.find((job) => job.id === Number(id));
+    setDesc(data);
+    // setShow('flex');
+  }, [id]);
+  return (
+    <div
+      className={`shadow-2xl ${
+        id ? 'flex' : show
+      } py-10  flex-col gap-3 animate-slideIn `}
+    >
+      <section className='flex px-4 flex-col gap-4 border-b-btncolor border-b pb-8'>
+        <p>{desc.title}</p>
+
+        <div className='flex items-center gap-2'>
+          <IoLocationOutline />
+          <p>{desc.location}</p>
         </div>
 
         <button
@@ -23,13 +38,7 @@ const JobDescription = () => {
       </section>
 
       <section className='px-4 flex flex-col gap-4'>
-        <p className='text-xs leading-relaxed'>
-          In this role, you will be responsible for developing and implementing
-          user interface components using React.js concepts and workflow such as
-          Redux, Flux, and Webpack. You will also be responsible for profiling
-          and improving front-end performance and documenting our front-end
-          codebase.
-        </p>
+        <p className='text-xs leading-relaxed'>{desc.description}</p>
 
         <ul className='text-sm flex flex-col gap-3 '>
           <li>Minimum Qualification: Degree</li>

@@ -1,20 +1,14 @@
 import React from 'react';
 import LoginImg from '../components/assets/login.png';
-import BlueBg from '../components/assets/Rectangle1.png';
+import Heroes from '../components/assets/heroes.png';
 import PinkBg from '../components/assets/Rectangle12.png';
 import { useJobContext } from './context/JobAppContext';
 import Input from './Input';
 
 const Login = ({ type }) => {
   const styles = {
-    backgroundImage: `url(${BlueBg})`,
+    backgroundImage: `url(${Heroes})`,
     backgroundPosition: 'right',
-  };
-
-  const styles2 = {
-    backgroundImage: `url(${PinkBg})`,
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
   };
 
   const {
@@ -27,12 +21,9 @@ const Login = ({ type }) => {
     handleLogin,
   } = useJobContext();
   return (
-    <div className='flex max-h-screen w-full'>
+    <div className='flex max-h-screen w-full' style={styles}>
       <section className='flex min-h-screen flex-1'>
-        <div
-          className='w-11/12 flex justify-center items-center  '
-          style={styles}
-        >
+        <div className='w-11/12 flex justify-center items-center  '>
           <div className='flex flex-col gap-8 justify-center items-center text-white'>
             <p className='text-4xl'>
               Find the best <br />
@@ -42,13 +33,15 @@ const Login = ({ type }) => {
             <img src={LoginImg} alt='imgs' className='w-6/12 object-contain' />
           </div>
         </div>
-        <div className='w-4/12  -ml-32 z-10 max-h-screen' style={styles2}></div>
       </section>
 
       <form
-        className=' flex flex-1 h-screen items-center'
+        className=' flex flex-col flex-1 h-screen w-1/2 justify-center items-center'
         onSubmit={type === 'register' ? handleRegister : handleLogin}
       >
+        <p className='text-primary  text-2xl'>
+          {type === 'register' ? 'Register' : 'Login'}
+        </p>
         <section className='flex-col flex gap-4 w-8/12'>
           {type === 'register' && (
             <label htmlFor='name' className='flex flex-col'>

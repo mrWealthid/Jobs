@@ -108,6 +108,18 @@ const JobAppProvider = ({ children }) => {
       console.log(error);
     }
   };
+
+  const [id, setId] = useState('');
+
+  const getID = (id) => {
+    console.log(id);
+    setId(id);
+  };
+
+  const closeModal = () => {
+    setShow(false);
+    setApplyModal(false);
+  };
   return (
     <JobAppContext.Provider
       value={{
@@ -127,6 +139,9 @@ const JobAppProvider = ({ children }) => {
         applyJobSubmit,
         handleRegister,
         handleLogin,
+        getID,
+        id,
+        closeModal,
       }}
     >
       {children}
