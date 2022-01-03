@@ -1,7 +1,7 @@
 import React from 'react';
 import LoginImg from '../components/assets/login.png';
 import Heroes from '../components/assets/heroes.png';
-import PinkBg from '../components/assets/Rectangle12.png';
+
 import { useJobContext } from './context/JobAppContext';
 import Input from './Input';
 
@@ -21,7 +21,10 @@ const Login = ({ type }) => {
     handleLogin,
   } = useJobContext();
   return (
-    <div className='flex max-h-screen w-full' style={styles}>
+    <div
+      className='flex max-h-screen bg-none lg:bg-white w-full'
+      style={styles}
+    >
       <section className='flex min-h-screen flex-1'>
         <div className='w-11/12 flex justify-center items-center  '>
           <div className='flex flex-col gap-8 justify-center items-center text-white'>

@@ -6,15 +6,13 @@ import { useJobContext } from '../context/JobAppContext';
 const JobDescription = ({ jobs, id }) => {
   const { handleApplyModal } = useJobContext();
   const [desc, setDesc] = useState({});
-  const [show, setShow] = useState('hidden');
+  const [show] = useState('hidden');
 
-  console.log(Number(id));
   useEffect(() => {
     if (!id) return;
     const data = jobs.find((job) => job.id === Number(id));
     setDesc(data);
-    // setShow('flex');
-  }, [id]);
+  }, [id, jobs]);
   return (
     <div
       className={`shadow-2xl ${
@@ -30,7 +28,7 @@ const JobDescription = ({ jobs, id }) => {
         </div>
 
         <button
-          className='w-1/3 bg-primary rounded p-2 text-white text-sm Apply'
+          className='w-1/2 bg-primary rounded-lg p-2 text-white text-xs Apply'
           onClick={handleApplyModal}
         >
           Apply via Find Job
@@ -47,7 +45,7 @@ const JobDescription = ({ jobs, id }) => {
           <li>Experience Length: 5 years</li>
         </ul>
 
-        <p className='font-bold'>Job Description/Requirements</p>
+        <p className='font-semibold'>Job Description/Requirements</p>
 
         <ul className='text-xs flex flex-col gap-6'>
           <li className='leading-relaxed'>
@@ -61,12 +59,6 @@ const JobDescription = ({ jobs, id }) => {
             as HTML, CSS, DOM, AJAX, etc., can quickly complete the established
             interactive design functions; At least 4 years experience is
             required.
-          </li>
-
-          <li>
-            5+ years experience of front-end related (HTML5 + JS + CSS3)
-            development work experience, familiar with mobile application
-            development;
           </li>
 
           <li>Thorough understanding of React.js and its core principles</li>

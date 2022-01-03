@@ -6,7 +6,9 @@ import {
   FaInstagram,
   FaFacebook,
   FaTwitter,
+  FaFilter,
 } from 'react-icons/fa';
+
 import AdminJobCard from '../AdminJobCard';
 
 const AdminBoard = () => {
@@ -23,7 +25,7 @@ const AdminBoard = () => {
           </button>
         </div>
 
-        <button className='py-2 px-2 rounded bg-btncolor flex items-center gap-1 text-white text-sm'>
+        <button className='py-2 px-2 rounded-lg bg-btncolor flex items-center gap-1 text-white text-sm'>
           <FaPlus />
           New Job
         </button>
@@ -38,8 +40,9 @@ const AdminBoard = () => {
               <p className='w-44'>Candidates</p>
             </div>
 
-            <div className='text-sm'>
-              <p>Job Title</p>
+            <div className='text-sm flex items-center gap-3'>
+              <FaFilter />
+              <p>Filter</p>
             </div>
           </div>
         </section>

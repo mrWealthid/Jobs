@@ -11,7 +11,7 @@ import { useParams } from 'react-router-dom';
 import { IoLocationOutline } from 'react-icons/io5';
 
 const GuestBoard = () => {
-  const { show, applyModal, closeModal } = useJobContext();
+  const { show, applyModal, closeModal, showPopup } = useJobContext();
 
   const { id } = useParams();
 
@@ -86,7 +86,7 @@ const GuestBoard = () => {
     },
   ];
   return (
-    <div className='flex flex-col gap-15'>
+    <div className='flex flex-col gap-15 '>
       <Header />
 
       <div className=' rounded-lg flex items-center gap-2 bg-white overflow-hidden  shadow  w-9/12 mx-auto -mt-6'>
@@ -106,17 +106,25 @@ const GuestBoard = () => {
         </div>
       </div>
 
-      <main className='flex my-20 gap-10 justify-center w-9/12 mx-auto'>
+      <main
+        className={`${
+          id ? 'flex flex-col md:flex-row items-center md:items-start' : ''
+        } my-20 gap-10 justify-center sm:w-11/12 lg:w-9/12 mx-auto`}
+      >
         <section
-          className={`grid ${
-            id ? 'grid-cols-1 w-1/2 ' : 'grid-cols-2 w-auto '
+          className={` grid ${
+            id
+              ? 'grid-cols-1 w-10/12 sm:w-8/12  md:w-1/2 '
+              : 'md:grid-cols-2 md:w-auto w-10/12 mx-auto '
           } gap-5 `}
         >
           {jobs.map((job) => (
             <JobCard {...job} key={job.id} />
           ))}
         </section>
-        <section className={`${id ? 'w-1/2 h-full sticky top-4' : ''} `}>
+        <section
+          className={`${id ? 'w-10/12 md:w-1/2 h-full sticky top-4' : ''} `}
+        >
           <JobDescription jobs={jobs} id={id} />
         </section>
       </main>
@@ -124,20 +132,20 @@ const GuestBoard = () => {
       <Footer />
 
       {show ? (
-        <div className='bg-white w-6/12 popup shadow-2xl   '>
+        <div className='bg-white w-10/12 lg:w-6/12 popup shadow-2xl   '>
           {' '}
           <PostJobModal id={id} />
         </div>
       ) : null}
 
       {applyModal ? (
-        <div className='bg-white w-6/12 popup shadow-2xl   '>
+        <div className='bg-white w-10/12 lg:w-6/12 popup shadow-2xl   '>
           {' '}
           <ApplyModal id={id} jobs={jobs} />
         </div>
       ) : null}
 
-      {show || applyModal ? (
+      {show || applyModal || showPopup ? (
         <div className='overlay ' onClick={closeModal}></div>
       ) : null}
     </div>

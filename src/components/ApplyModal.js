@@ -16,7 +16,7 @@ const ApplyModal = ({ id, jobs }) => {
   useEffect(() => {
     if (!id) return;
     setDesc(jobs.find((job) => job.id === Number(id)));
-  }, [id]);
+  }, [id, jobs]);
 
   return (
     <div className='flex flex-col text-xs gap-3 min-h-screen text-primary py-10 animate-slideIn w-10/12 mx-auto Post'>

@@ -1,11 +1,5 @@
-import React, {
-  useContext,
-  useState,
-  useEffect,
-  createContext,
-  useRef,
-} from 'react';
-import Login from '../Login';
+import React, { useContext, useState, createContext } from 'react';
+
 import { loginUser, registerUser } from '../utils/helpers';
 
 const JobAppContext = createContext();
@@ -92,8 +86,9 @@ const JobAppProvider = ({ children }) => {
     email: '',
     password: '',
   });
-  const handleClicks = (e) => {
+  const handleClicks = () => {
     setShow(!show);
+    setShowPopup(false);
   };
 
   const handleRegister = async (e) => {
@@ -119,6 +114,13 @@ const JobAppProvider = ({ children }) => {
   const closeModal = () => {
     setShow(false);
     setApplyModal(false);
+    setShowPopup(false);
+  };
+
+  const [showPopup, setShowPopup] = useState(false);
+
+  const togglePopup = () => {
+    setShowPopup(!showPopup);
   };
   return (
     <JobAppContext.Provider
@@ -142,6 +144,8 @@ const JobAppProvider = ({ children }) => {
         getID,
         id,
         closeModal,
+        showPopup,
+        togglePopup,
       }}
     >
       {children}

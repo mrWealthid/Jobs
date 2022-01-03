@@ -1,16 +1,24 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useJobContext } from './context/JobAppContext';
+import HeaderLogo from './assets/FindJobs.png';
+import { FaBars, FaTimes, FaBell } from 'react-icons/fa';
+
+import { BiUserCircle } from 'react-icons/bi';
+import HeaderPopup from './HeaderPopup';
 
 const Header = ({ type }) => {
-  const { handleClicks } = useJobContext();
+  const { handleClicks, showPopup, togglePopup } = useJobContext();
   return (
-    <header className='bg-primary flex flex-col text-white gap-10 py-4'>
-      <div className='flex w-10/12 justify-between items-center text-white mx-auto '>
-        <div className=''>Find jobs</div>
+    <header className='bg-primary flex flex-col  gap-10 py-4'>
+      <div className='flex text-white w-10/12 justify-between items-center text-white mx-auto '>
+        <div className='flex flex-col text-xs'>
+          <img src={HeaderLogo} alt='headerLogo' className='w-5/6' />
+          For Employers
+        </div>
 
         {type === 'Guest' ? (
-          <div className='flex items-center text-sm gap-4 '>
+          <div className='hidden md:flex  items-center text-sm gap-4 '>
             <NavLink to='/'>Jobs</NavLink>
             <NavLink to='/reviews'>Company Review</NavLink>
 
@@ -23,12 +31,39 @@ const Header = ({ type }) => {
             </button>
           </div>
         ) : (
-          <p> Icons</p>
+          <div className='flex gap-4 items-center'>
+            <FaBell />
+            <BiUserCircle />
+          </div>
+        )}
+
+        {!showPopup ? (
+          <FaBars
+            color='white'
+            className='md:hidden cursor-pointer'
+            onClick={togglePopup}
+          />
+        ) : (
+          <FaTimes
+            color='white'
+            className='md:hidden animate-slideOut cursor-pointer'
+            onClick={togglePopup}
+          />
         )}
       </div>
-      <section className='flex flex-col gap-10 w-9/12 mx-auto mb-16'>
-        {type === 'Guest' ? <p>Find Your Dream Job</p> : <p>Jobs</p>}
+      <section className='flex flex-col text-white gap-10 w-9/12 mx-auto mb-16'>
+        {type === 'Guest' ? (
+          <p className='text-2xl'>Find Your Dream Job</p>
+        ) : (
+          <p className='text-2xl'>Jobs</p>
+        )}
       </section>
+
+      {showPopup ? (
+        <div className='popups animate-slideIn text-primary'>
+          <HeaderPopup />
+        </div>
+      ) : null}
     </header>
   );
 };
