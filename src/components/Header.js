@@ -12,9 +12,9 @@ const Header = ({ type }) => {
   return (
     <header className='bg-primary flex flex-col  gap-10 py-4'>
       <div className='flex text-white w-10/12 justify-between items-center text-white mx-auto '>
-        <div className='flex flex-col text-xs'>
+        <div className='flex flex-col gap-4 text-xs'>
           <img src={HeaderLogo} alt='headerLogo' className='w-5/6' />
-          For Employers
+          <p className='text-center'>For Employers</p>
         </div>
 
         {type === 'Guest' ? (
@@ -22,7 +22,7 @@ const Header = ({ type }) => {
             <NavLink to='/'>Jobs</NavLink>
             <NavLink to='/reviews'>Company Review</NavLink>
 
-            <NavLink to='/'>Find Salaries</NavLink>
+            <NavLink to='/register'>Register</NavLink>
             <button
               className='text-primary bg-white py-1 px-2 rounded Post'
               onClick={handleClicks}

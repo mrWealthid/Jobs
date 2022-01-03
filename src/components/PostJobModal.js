@@ -55,7 +55,7 @@ const PostJobModal = () => {
             </label>
             <select
               value={postJob.type}
-              className=' border rounded p-2'
+              className=' border border-gray  rounded p-2'
               name='type'
               onChange={handleChangePostJob}
             >
@@ -87,7 +87,7 @@ const PostJobModal = () => {
             </label>
             <select
               value={postJob.category}
-              className=' border rounded p-2'
+              className=' border border-gray rounded p-2'
               name='category'
               onChange={handleChangePostJob}
             >

@@ -13,7 +13,7 @@ function App() {
       {/* <GuestBoard /> */}
 
       <Routes>
-        <Route path='/admin' element={<AdminBoard />} />
+        <Route path='/jobs' element={<AdminBoard />} />
 
         <Route path='/' element={<GuestBoard />} />
         <Route path='/:id' element={<GuestBoard />} />

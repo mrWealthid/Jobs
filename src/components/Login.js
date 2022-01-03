@@ -4,6 +4,7 @@ import Heroes from '../components/assets/heroes.png';
 
 import { useJobContext } from './context/JobAppContext';
 import Input from './Input';
+import { Link } from 'react-router-dom';
 
 const Login = ({ type }) => {
   const styles = {
@@ -113,6 +114,21 @@ const Login = ({ type }) => {
             {type === 'login' ? 'Login' : 'Register'}{' '}
           </button>
         </section>
+        {type === 'login' ? (
+          <p className ='mt-3'>
+            Don't Have An Account ?{' '}
+            <Link className='underline text-primary' to='/register'>
+              Register here{' '}
+            </Link>
+          </p>
+        ) : (
+          <p className ='mt-4'>
+            Already Have An Account ?{' '}
+            <Link className='underline text-primary' to='/login'>
+              Login here{' '}
+            </Link>
+          </p>
+        )}
       </form>
     </div>
   );

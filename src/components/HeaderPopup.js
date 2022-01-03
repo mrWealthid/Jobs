@@ -9,7 +9,7 @@ const HeaderPopup = () => {
   return (
     <div className='glass21  shadow-lg  flex flex-col gap-1 rounded-b-lg group'>
       <div className='flex items-center  justify-between p-2 '>
-        <NavLink className='  ' to='/'>
+        <NavLink className='  ' to='/jobs'>
           Jobs
         </NavLink>
         <FaHome />

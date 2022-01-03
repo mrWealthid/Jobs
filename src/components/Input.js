@@ -5,7 +5,7 @@ const Input = ({ type, name, value, onchange }) => {
     <>
       <input
         type={type}
-        className=' border rounded p-2'
+        className=' border border-gray rounded p-2'
         name={name}
         value={value}
         onChange={onchange}
