@@ -109,7 +109,7 @@ const GuestBoard = () => {
       <main
         className={`${
           id ? 'flex flex-col md:flex-row items-center md:items-start' : ''
-        } my-20 gap-10 justify-center sm:w-11/12 lg:w-9/12 mx-auto`}
+        } my-20 gap-10 justify-center items-center sm:w-11/12 lg:w-9/12 mx-auto min-h-screen `}
       >
         <section
           className={` grid ${

@@ -19,7 +19,7 @@ const ApplyModal = ({ id, jobs }) => {
   }, [id, jobs]);
 
   return (
-    <div className='flex flex-col text-xs gap-3 min-h-screen text-primary py-10 animate-slideIn w-10/12 mx-auto Post'>
+    <div className='flex flex-col text-xs gap-3 min-h-screen md:min-h-full  lg:min-h-screen text-primary py-10 animate-slideIn w-10/12 mx-auto Post'>
       <div className='flex justify-end '>
         {' '}
         <FaTimes onClick={handleApplyModal} />
