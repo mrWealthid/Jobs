@@ -116,7 +116,7 @@ const GuestBoard = () => {
             id
               ? 'grid-cols-1 w-10/12 sm:w-8/12  md:w-1/2 '
               : 'md:grid-cols-2 md:w-auto w-10/12 mx-auto '
-          } gap-5 min-h-screen items-center `}
+          } gap-5  my-20 `}
         >
           {jobs.map((job) => (
             <JobCard {...job} key={job.id} />
