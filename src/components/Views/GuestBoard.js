@@ -123,7 +123,7 @@ const GuestBoard = () => {
           ))}
         </section>
         <section
-          className={`${id ? 'w-10/12 md:w-1/2 h-full sticky top-4' : ''} `}
+          className={`${id ? 'w-10/12 md:w-1/2 sticky top-4  lg:h-full' : ''} `}
         >
           <JobDescription jobs={jobs} id={id} />
         </section>
