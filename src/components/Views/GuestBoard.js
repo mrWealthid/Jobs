@@ -109,14 +109,14 @@ const GuestBoard = () => {
       <main
         className={`${
           id ? 'flex flex-col md:flex-row  lg:items-start' : ''
-        } my-20 gap-10 justify-center items-center sm:w-11/12 lg:w-9/12  flex mx-auto min-h-screen md:h-full lg:min-h-screen `}
+        } gap-10 justify-center items-center sm:w-11/12 lg:w-9/12  flex mx-auto min-h-screen md:h-full lg:min-h-screen `}
       >
         <section
           className={` grid ${
             id
               ? 'grid-cols-1 w-10/12 sm:w-8/12  md:w-1/2 '
               : 'md:grid-cols-2 md:w-auto w-10/12 mx-auto '
-          } gap-5  my-20 `}
+          } gap-5 my-10 md:my-2  `}
         >
           {jobs.map((job) => (
             <JobCard {...job} key={job.id} />
